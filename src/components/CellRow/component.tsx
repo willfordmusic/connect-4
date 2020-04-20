@@ -1,16 +1,26 @@
-import React from 'react';
-import Cell from '../Cell/component';
+import React, { useState } from 'react';
 import './style.scss';
-import { Player } from '../Board/component';
 
 interface Props {
     height: number;
-    cellStates: (Player | null)[];
+    cellStates: number[];
+    onClick: (cellIndex: number) => void;
+}
+
+function Cell(props: {player: number}): JSX.Element {
+    return (
+        <div className={
+            'cell ' + (props.player === -1 ? 'empty' : 'p' + props.player?.toString())
+        }></div>
+    )
 }
 
 export default function CellRow(props: Props): JSX.Element {
-    function clickHandler() {
+    const [cell, setCell] = useState(0);
 
+    function clickHandler() {
+        props.onClick(cell);
+        setCell(cell + 1);
     }
 
     const cells: JSX.Element[] = [];

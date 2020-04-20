@@ -1,7 +1,23 @@
 .board {
     background-color: blue;
     display: flex;
-    color: white;
+    justify-content: center;
     width: 100%;
-    height: 200px;
+
+    .cells {
+        display: flex;
+        padding: 20px;
+    }
+
+    .message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 2rem;
+        margin-left: 3rem;
+        width: 30%;
+        text-align: center;
+    }
 }
